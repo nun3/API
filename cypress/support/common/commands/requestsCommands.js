@@ -107,6 +107,16 @@ Cypress.Commands.add('deleteRequest', (url) => {
     });
 });
 
+Cypress.Commands.add('deleteRequestLink', (url) => {
+  const apiEndpoint = `${url}/${Cypress.env('ID_LINK_URL')}`;
+  cy.authenticatedRequest('DELETE', apiEndpoint)
+    .as('deleteResponse') // Armazena a resposta como um alias
+    .then((response) => {
+      expect(response.status).to.eq(200); // Verifica se o status é 200
+      cy.log('Recurso deletado com sucesso:', response.body);
+    });
+});
+
 
 Cypress.Commands.add('getRequest', (url, grupo = '', subgrupo = '', value, body = '') => {
 

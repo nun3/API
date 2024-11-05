@@ -4,6 +4,7 @@ Given('que eu envie uma requisição POST para a URL {string} com o corpo da req
 Given('que eu envie uma requisição de edição PUT para a URL {string} com o corpo da requisição carregado do arquivo {string}', cy.updateRequest);
 Given('que eu envie uma requisição GET para {string} e armazene no grupo {string} no subgrupo {string} o valor do campo {string}', cy.getRequest);
 Given('que eu envie uma requisição Delete para {string}', cy.deleteRequest);
+Given('que eu envie uma requisição Delete para {string} recuperando o ID de um Link', cy.deleteRequestLink);
 Then('o status code da resposta deve ser {string}', (expectedStatusCode) => {
   cy.get('@deleteResponse').its('status').should('eq', Number(expectedStatusCode));
 });
